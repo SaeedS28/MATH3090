@@ -1,4 +1,4 @@
-function [g1,g2] = Q1E(x1,x2)
+function [xNext,iterator] = Q1E(x1,x2)
 % Secant Method for a function
 
 ig1=x1;
@@ -11,16 +11,14 @@ if (hardCodedFunction(ig1)-hardCodedFunction(ig2)==0)
 end
 
 iterator=1;
-xPrevPrev=ig2
+xPrevPrev=ig2;
 xPrev=ig1;
 xNext=xPrev-hardCodedFunction(xPrev)*((xPrev-xPrevPrev)/(hardCodedFunction(xPrev)-hardCodedFunction(xPrevPrev)));
 sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = %f\n",iterator,xPrevPrev,xPrev,xNext)
 
-while (abs(xNext)>eps)
-    
-    temp=xPrev;
+while (abs(xNext-xPrev)>eps*abs(xNext))
+    xPrevPrev=xPrev;
     xPrev=xNext;
-    xPrevPrev=temp;
     xNext=xPrev-hardCodedFunction(xPrev)*((xPrev-xPrevPrev)/(hardCodedFunction(xPrev)-hardCodedFunction(xPrevPrev)));
     
     iterator=iterator+1;

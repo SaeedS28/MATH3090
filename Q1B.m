@@ -1,4 +1,4 @@
-function [lowerBound, upperBound] = Q1B(a,b)
+function [incrementor, lowerBound, upperBound] = Q1B(a,b)
 % Bisection Method for a function
 
 format long;
