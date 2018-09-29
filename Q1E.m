@@ -16,8 +16,12 @@ xPrev=ig1;
 xNext=xPrev-hardCodedFunction(xPrev)*((xPrev-xPrevPrev)/(hardCodedFunction(xPrev)-hardCodedFunction(xPrevPrev)));
 sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = %f\n",iterator,xPrevPrev,xPrev,xNext)
 
-while (abs(xPrev-xNext)>eps*abs(xNext))
+while (abs(xNext)>eps)
     
+    temp=xPrev;
+    xPrev=xNext;
+    xPrevPrev=temp;
+    xNext=xPrev-hardCodedFunction(xPrev)*((xPrev-xPrevPrev)/(hardCodedFunction(xPrev)-hardCodedFunction(xPrevPrev)));
     
     iterator=iterator+1;
     sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = %f\n",iterator,xPrevPrev,xPrev,xNext)

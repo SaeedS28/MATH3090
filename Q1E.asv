@@ -14,14 +14,14 @@ iterator=1;
 xPrevPrev=ig2
 xPrev=ig1;
 xNext=xPrev-hardCodedFunction(xPrev)*((xPrev-xPrevPrev)/(hardCodedFunction(xPrev)-hardCodedFunction(xPrevPrev)));
-sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = ",iterator,xPrev,xNext)
+sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = %f\n",iterator,xPrevPrev,xPrev,xNext)
 
-while (abs(xPrev-xNext)>eps*abs(xNext))
-    xPrev=xNext;
-    xNext=xPrev-(hardCodedFunction(xPrev)/hardCodedFunctionDerivative(xPrev));
+while (abs(xNext)>eps)
+    
+    
     
     iterator=iterator+1;
-    sprintf("Iteration %f\txPrev = %f\txNext = %f\n",iterator,xPrev,xNext)
+    sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = %f\n",iterator,xPrevPrev,xPrev,xNext)
 end
 end
 
