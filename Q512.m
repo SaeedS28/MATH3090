@@ -36,4 +36,4 @@ axis([-1.5 1.5 -0.5 1.5])
 hold off;
 
 set(gcf, 'Position', get(0, 'Screensize'));
-saveas(figure1,'graphForQ59.jpg');
+saveas(figure1,'graphForQ512.jpg');
