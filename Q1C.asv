@@ -12,9 +12,10 @@ if (hardCodedFunctionDerivative(ig)==0)
     error("The initial guesses are incorrect: initial guess cannot be 0.");
 end
 
+
 % First iteration is done outside of the loop because xNext needs to be
 % calculated before the exist condition is checked. I would've used the do
-% while loop but MATLAB does not support such a construct.
+% while loop but MATLA
 iterator=1;
 xPrev=ig;
 xNext=xPrev-(hardCodedFunction(xPrev)/hardCodedFunctionDerivative(xPrev));
@@ -33,7 +34,6 @@ end
 end
 
 function y=hardCodedFunction(x)
-% Evaluates a predefined function at a given point.
 % The hardcoded function happened to be y=-cosx-x.^3
 
 y = (-cos(x)-x.^3);
@@ -41,7 +41,6 @@ y = (-cos(x)-x.^3);
 end
 
 function y=hardCodedFunctionDerivative(val)
-% Evaluates the derivative of predefined function at a given point.
 % The derivative of the function is y=sin(x)-3x.^2
 
 y=(sin(val))-(3*val.^2)
