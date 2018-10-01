@@ -33,3 +33,5 @@ xlabel('x')
 ylabel('r')
 title('residual vs x (Norris)');
 
+% Modelling for Pontius
+load Pontius.dat
