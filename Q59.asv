@@ -1,7 +1,4 @@
-
 % Modelling for Norris data from NIST website
-figure1=figure;
-
 load Norris.dat
 
 % import data into two vectors
@@ -70,13 +67,10 @@ subplot(2,2,4);
 xLine2=linspace(1.5e5,30e5);
 y22=0;
 
-% Plots the residual error for Pontius dataset.
-plot(xLine2,y22*zeros(size(xLine2)),"r--",xPontius,residualPontius,'.','markersize',10);
+% Plots the residual error for Pontius data
+plot(xLine2,y22*zeros(size(xLine2)),"k--",xPontius,residualPontius,'.','markersize',10);
 line([0 3.2e6],[0 0],'color','k');
 axis([0 3.2e6 -5e-4 5e-4]);
 xlabel('x');
 ylabel('y');
-title("residual vs x (Pontius)");
-
-set(gcf, 'Position', get(0, 'Screensize'));
-saveas(figure1,'graphForQ59.jpg');
+title("residual vs x (Pontius");
