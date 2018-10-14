@@ -22,31 +22,26 @@ midpoint=0;
 incrementor=0;
 yMid=0;
 yLower=0;
+yUpper=0;
 
 % the loop only runs until the relative difference between the intervak is
 % greater than the magnitude of eps. This ensures that the algorithm
-% terminates in 52 steps.
+% terminates as expected.
 while (abs(lowerBound-upperBound)> eps*abs(upperBound))
     midpoint=(lowerBound+upperBound)/2;
-    
+    incrementor=incrementor + 1;
     yMid=hardCodedFunction(midpoint);
-    %yLower=hardCodedFunction(lowerBound);
-    if sign(yMid) == sign(hardCodedFunction(upperBound))
+    yUpper=hardCodedFunction(upperBound);
+    
+    % Changes the interval based on the signs of the values calculated
+    % above
+    if sign(yMid) == sign(yUpper)
        upperBound = midpoint;
     else
         lowerBound = midpoint;
     end
-    % Changes the interval based on the signs of the values calculated
-    % above
+    fprintf("Iteration %f\ta = %.f\tm = %16.f\tb = %16.f\n",incrementor,lowerBound,midpoint,upperBound)% Prints out data for testing purpose
     
-%     if(yMid>0 & yLower <0) | (yMid<0 & yLower>0)
-%         upperBound=midpoint;
-%     else
-%         lowerBound=midpoint;
-%     end
-    
-    incrementor=incrementor +1;
-    sprintf("Iteration %f\ta = %f\tm = %f\tb = %f\n",incrementor,lowerBound,midpoint,upperBound)% Prints out data for testing purpose
 end
 end
 

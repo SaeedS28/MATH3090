@@ -40,7 +40,7 @@ while (abs(lowerBound-upperBound)> eps*abs(upperBound))
     else
         lowerBound = midpoint;
     end
-    sprintf("Iteration %f\ta = %f\tm = %f\tb = %f\n",incrementor,lowerBound,midpoint,upperBound)% Prints out data for testing purpose
+    fprintf("Iteration %f\tlower = %.16f\tmid = %.16f\tupper = %.16f\trelative difference = %.16f\n",incrementor,lowerBound,midpoint,upperBound, abs(lowerBound-upperBound))% Prints out data for testing purpose
     
 end
 end
