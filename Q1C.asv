@@ -26,7 +26,9 @@ while (abs(xPrev-xNext)>eps*abs(xNext))
     iterator=iterator+1; % Keeps track of the number of iterations
     xPrev=xNext;
     xNext=xPrev-(hardCodedFunction(xPrev)/hardCodedFunctionDerivative(xPrev)); % Formula for the Newton's Method
-    fprintf("Iteration %d\txPrev = %.16f\txNext = %.16f\trelative difference = %.16f\n",iterator,xPrev,xNext,abs(xPrev-xNext))
+    
+    fprintf("Iteration %d\txPrev = %.16f\txNext = %.16f\trelatidifference = %.16f\n",iterator,xPrev,xNext,abs(xPrev-xNext))
+    
 end
 
 end
