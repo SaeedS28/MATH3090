@@ -27,7 +27,7 @@ yUpper=0;
 % the loop only runs until the relative difference between the intervak is
 % greater than the magnitude of eps. This ensures that the algorithm
 % terminates as expected.
-while (abs(lowerBound-upperBound)> eps*abs(upperBound))
+while (abs(lowerBound-upperBound)> eps)
     midpoint=(lowerBound+upperBound)/2;
     incrementor=incrementor + 1;
     yMid=hardCodedFunction(midpoint);

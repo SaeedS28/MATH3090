@@ -25,12 +25,12 @@ sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = %f\n",iterator,xPrevP
 % Runs until the magnitude of the difference of the two consecutive
 % x values is greater than the magnitude value of eps.
 while (abs(xNext-xPrev)>eps*abs(xNext))
+    iterator=iterator+1;
     xPrevPrev=xPrev;
     xPrev=xNext;
     xNext=xPrev-hardCodedFunction(xPrev)*((xPrev-xPrevPrev)/(hardCodedFunction(xPrev)-hardCodedFunction(xPrevPrev))); % formula for calculating the next x value
     
-    iterator=iterator+1;
-    sprintf("Iteration %f\txPrevPrev = %f\txPrev = %f\txNext = %f\n",iterator,xPrevPrev,xPrev,xNext)
+    fprintf("Iteration %d\txPrevPrev = %.16f\txPrev = %.16f\txNext = %.16f\trelative difference = %.16f\n",iterator,xPrevPrev,xPrev,xNext,abs(xNext-xPrev))
 end
 end
 
