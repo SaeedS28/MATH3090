@@ -1,4 +1,4 @@
-
+format long
 % Modelling for Norris data from NIST website
 figure1=figure;
 
