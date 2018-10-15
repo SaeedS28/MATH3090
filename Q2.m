@@ -1,7 +1,8 @@
+format long
 
 % The algorithm for the Steepest Descent Method was implemented by looking
 % at the pseudocode given in the 10th edition of the Numerical Analysis textbook
-% by Burden and Faires (page 669)
+% by Burden and Faires ( Section 10.4, page 669). I used this book when I took MATH 3241 last year.
 
  % Starting point
 x=[1 1];
@@ -20,7 +21,6 @@ for counter=1:300
     JacobianMatrix=[6*x(1) -2*x(2); 
                     3*x(2).^2-3*x(1).^2 6*x(1)*x(2)];
 
-    
     % Finding Dg(x)
     Dg=2*JacobianMatrix*f';
     zNaught=norm(Dg);
@@ -51,21 +51,23 @@ for counter=1:300
     x=xCopy-aSecond*z';
     fPrevious=f;
     f=[eval(f1) eval(f2)];
-    
-    % Newton's Forward Divided Differences method gets the alphas
     gSecond=f*f';
+
+    % Newton's Forward Divided Differences method gets the alphas
     hFirst=(gSecond-gFirst)/aSecond;
     hSecond=(gThird-gSecond)/(aThird-aSecond);
     hThird=(hSecond-hFirst)/aThird;
     
+    % Critical point occurs at aZero
     aZero=0.5*(aSecond-hFirst/hThird);
     
     x=xCopy-aZero*z';
     f=[eval(f1) eval(f2)];
-    
     gZero=f*f';
+    
     s=f;
     
+    % Finding the a so that g is the minimum of all g's
     if gZero<gThird
        a=aZero;
        difference=gZero;
@@ -75,8 +77,10 @@ for counter=1:300
         difference=gThird;
         f=fPrevious;
     end
+    
     x=xCopy-a*z';
-    fprintf('counter= %d, x = %f  %f, Difference = %f\n',counter, x(1),x(2),difference);
+    
+    fprintf('counter= %d, x = %.16f  %.16f, Difference = %.16f\n',counter, x(1),x(2),difference);
     if abs(difference)<1e-2
         break;
     end
