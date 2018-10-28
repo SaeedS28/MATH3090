@@ -3,9 +3,9 @@
 % y' = 1+y/t , 2 <= t <= 3, y(2) = 1
 f = @(t,y) (1+y/t);
 
-% case for when h=0.5
+% case for when h=0.01
 
-h=0.5;
+h=0.01;
 xVals=2:h:3;
 y=zeros(1,numel(xVals));
 y(1)=1;
@@ -35,10 +35,10 @@ for i=1:length(xVals)
 end
 
 figure1=figure;
-plot(xVals, y, '-ro','LineWidth',2)
+plot(xVals, y, '-r*','LineWidth',2)
 axis([1.5 3.25 0.5 3.25])
 hold on
-plot(xVals, yReals, '-.b*', 'LineWidth',2)
+plot(xVals, yReals, '-.b', 'LineWidth',2)
 legend('Approximated Solution', 'Exact Solution','NW')
 hold off;
-saveas(figure1,'graphForQ1A05.jpg');
+saveas(figure1,'graphForQ1A001.jpg');
