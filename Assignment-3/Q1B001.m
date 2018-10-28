@@ -1,12 +1,12 @@
 %format short
 % The differential equation being solved for is 
-% y' = 1+y/t , 2 <= t <= 3, y(2) = 1
-f = @(t,y) (1+y/t);
+% y' = exp(t-y) , 0 <= t <= 1, y(0) = 1
+f = @(t,y) (exp(t-y));
 
 % case for when h=0.5
 
-h=0.5;
-xVals=2:h:3;
+h=0.01;
+xVals=0:h:1;
 y=zeros(1,numel(xVals));
 y(1)=1;
 
@@ -19,8 +19,8 @@ for i=2:length(xVals)
 end
 
 % calculate the exact solution for the x values
-fR = @(t) ((1-2*log(2))/2)*t+(t*log(t));
-%xVals=2:h:3;
+fR = @(t) (log(exp(t)+exp(1)-1));
+
 yReals=zeros(1,numel(xVals));
 
 for i=1:length(xVals)
@@ -34,10 +34,11 @@ for i=1:length(xVals)
     fprintf("x = %d\tyCalc = %d\tyExact = %d\tglobalErro=%d\n",xVals(i),y(i),yReals(i),gError(i))
 end
 
-figure
-plot(xVals, y, '-.r*', ')
-axis([1.5 3.25 0.5 3.25])
+figure1=figure;
+plot(xVals, y, '-r*','LineWidth',2)
+axis([0 1.3 1 1.7])
 hold on
-plot(xVals, yReals, '-o')
-legend('Approximated Solution', 'Exact Solution','NW')
+plot(xVals, yReals, '-.b', 'LineWidth',2)
+legend('Approximated Solution', 'Exact Solution','SW')
 hold off;
+saveas(figure1,'graphForQ1B001.jpg');
